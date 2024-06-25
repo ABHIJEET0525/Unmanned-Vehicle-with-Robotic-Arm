@@ -69,7 +69,12 @@ motor_4.write(servo4);
 
 motor_5.write(servo5);
 
-pinMode(enA, OUTPUT); // declare as output for L298 Pin enA pinMode(in1, OUTPUT); // declare as output for L298 Pin inl pinMode(in2, OUTPUT); // declare as output for L298 Pin in2 pinMode(in3, OUTPUT); // declare as output for L298 Pin in3 pinMode(in4, OUTPUT); // declare as output for L298 Pin in4 pinMode(enB, OUTPUT);
+pinMode(enA, OUTPUT); // declare as output for L298 Pin enA 
+pinMode(in1, OUTPUT); // declare as output for L298 Pin inl 
+pinMode(in2, OUTPUT); // declare as output for L298 Pin in2 
+pinMode(in3, OUTPUT); // declare as output for L298 Pin in3 
+pinMode(in4, OUTPUT); // declare as output for L298 Pin in4 
+pinMode(enB, OUTPUT);
 
 pinMode(LED1, OUTPUT);
 
@@ -86,10 +91,14 @@ delay(1000);
 void loop(){
 
 //if some date is sent, reads it and saves in state
-if(Serial.available() > 0){ bt_data Serial.read(); Serial.println(bt_data); if(bt_data > 20){Speed = bt_data; }
+if(Serial.available() > 0){ 
+  bt_data Serial.read(); 
+  Serial.println(bt_data); 
+  if(bt_data > 20){Speed = bt_data; }
 
-analogWrite(enA, Speed); // Write The Duty Cycle 0 to 255 Enable Pin A for Motorl Speed analogWrite(enB, Speed); // Write The Duty Cycle 0 to 255 Enable Pin B for Motor2 Speed
-
+analogWrite(enA, Speed); // Write The Duty Cycle 0 to 255 Enable Pin A for Motorl Speed 
+analogWrite(enB, Speed); // Write The Duty Cycle 0 to 255 Enable Pin B for Motor2 Speed
+{
 long duration, distance;
 
 digitalWrite(triggerPin, HIGH);
@@ -98,7 +107,12 @@ delayMicroseconds(10); digitalWrite(triggerPin, LOW);
 
 duration pulseIn(echoPin, HIGH); distance duration 0.034/2;
 
-if (distance <8) ( Stop(); LED_D3(): delay(500); backword(); LED_D1();
+if (distance <8) { 
+  Stop(); 
+  LED_D3(): 
+  delay(500); 
+  backword(); 
+  LED_D1();
 
 delay(500);
 
@@ -110,7 +124,8 @@ LED_D2();
 
 // Delay after the sweep before checking for object again
 
-if(bt_data 1) {forword(): LED_D1(); } // if the bt_data is 'I' the DC motor will go forward else if(bt_data 2) (backword(); LED_DI();} // if the bt_data is '2' the motor will Reverse
+if(bt_data 1) {forword(): LED_D1(); } // if the bt_data is 'I' the DC motor will go forward 
+else if(bt_data 2) (backword(); LED_DI();} // if the bt_data is '2' the motor will Reverse
 
 else if(bt_data3) (turnLeft(); LED_DI();} // if the bt_data is '3' the motor will turn left
 
@@ -118,7 +133,8 @@ else if(bt_data 4) (turnRight(); LED_D1();) // if the bt_data is '4' the motor w
 
 else if(bt_data=5)(Stop(); LED_D2(); // if the bt_data '5' the motor will Stop
 
-else if(bt_data 6) (turnLeft(); delay(400); bt_data = 5;) else if(bt_data=7) (turnRight(); delay(400); bt_data = 5;)
+else if(bt_data 6) (turnLeft(); delay(400); bt_data = 5;) 
+else if(bt_data=7) (turnRight(); delay(400); bt_data = 5;)
 
 else if (bt data = 8){ if(servol<180){servol servol+1;} motor_1.write(servol);
 
@@ -174,12 +190,18 @@ digitalWrite(in3, LOW); //Left Motor backword Pin
 
 digitalWrite(in4, LOW); //Left Motor forword Pin
 
-void LED_DI()1//stop
+void LED_DI(){//stop
 
-digitalWrite(LED1, HIGH); //Right Motor forword Pin digitalWrite(LED2, HIGH); delay(500); digitalWrite(LEDI, LOW); //Right Motor forword Pin digitalWrite(LED2, LOW);//Right Motor backword Pin
+digitalWrite(LED1, HIGH); //Right Motor forword Pin 
+digitalWrite(LED2, HIGH); 
+delay(500);
+digitalWrite(LEDI, LOW); //Right Motor forword Pin 
+digitalWrite(LED2, LOW);//Right Motor backword Pin
 
-void LED_D2(){ //stop digitalWrite(LED1, HIGH); //Right Motor forword Pin digitalWrite(LED2, LOW); delay(500);
-
+void LED_D2(){ //stop 
+digitalWrite(LED1, HIGH); //Right Motor forword Pin 
+digitalWrite(LED2, LOW);
+delay(500);
 digitalWrite(LED1, LOW); //Right Motor forword Pin
 digitalWrite(LED2, HIGH);//Right Motor backword Pin
 
